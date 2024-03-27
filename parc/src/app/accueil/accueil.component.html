@@ -6,10 +6,12 @@
   </mat-card-header>
   <mat-card-content>
     <div class="attraction-title">
-      <div class="attraction">
+      <div class="attraction-header">
         <span>Nom de l'attraction</span>
         <span>Description de l'attraction</span>
         <span>Difficulté de l'attraction / 5</span>
+        <span>Action</span>
+        <!-- Ajout de la colonne pour l'action -->
       </div>
     </div>
     <ng-container *ngFor="let attraction of attractions | async">
@@ -17,6 +19,11 @@
         <span>{{ attraction.nom }}</span>
         <span>{{ attraction.description }}</span>
         <span>{{ attraction.difficulte }} / 5</span>
+        <span>
+          <button mat-icon-button (click)="goToReviewPage(attraction)">
+            <mat-icon>rate_review</mat-icon>
+          </button>
+        </span>
       </div>
     </ng-container>
   </mat-card-content>
